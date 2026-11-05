@@ -24,14 +24,17 @@ int main()
         .scheduling_metric = 0.75F
     };
 
-    std::cout << "UE ID: " << ue1.id << '\n';
-    std::cout << "CQI: " << static_cast<unsigned int>(ue1.cqi) << '\n';
+    std::cout << "UE ID: " << ue1.id << "\n";
+    // One subtle C++ issue: std::uint8_t is typically an alias for unsigned char
+    // If you print it directly using std::cout, it may display as a character rather than a number. 
+    // So use
+    std::cout << "CQI: " << static_cast<unsigned int>(ue1.cqi) << "\n"; 
     std::cout << "Buffer: " << ue1.buffer_bytes << " bytes\n";
     std::cout << "Average Throughput: " << ue1.average_throughput_mbps << " Mbps\n";
     std::cout << "Achievable Rate: " << ue1.achievable_rate_mbps << " Mbps\n";
-    std::cout << "QoS Weight: " << ue1.qos_weight << '\n';
-    std::cout << "\nPRB Index: " << alloc1.prb_index << '\n';
-    std::cout << "Allocated to UE: " << alloc1.ue_id << '\n';
+    std::cout << "QoS Weight: " << ue1.qos_weight << "\n";
+    std::cout << "\nPRB Index: " << alloc1.prb_index << "\n";
+    std::cout << "Allocated to UE: " << alloc1.ue_id << "\n";
     
     return 0;
 }

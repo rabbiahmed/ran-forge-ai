@@ -1,3 +1,4 @@
+
 cmake_minimum_required(VERSION 3.22)
 
 project(
@@ -6,6 +7,20 @@ project(
     DESCRIPTION "GPU-Accelerated RAN Scheduling and Performance Engineering"
     LANGUAGES CXX
 )
+
+# GoogleTest dependency
+include(FetchContent)
+
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG v1.15.2
+)
+
+FetchContent_MakeAvailable(googletest)
+
+# Enable CTest
+enable_testing()
 
 # C++ standard
 set(CMAKE_CXX_STANDARD 20)
@@ -28,3 +43,22 @@ target_include_directories(ranforge
     PRIVATE
         ${PROJECT_SOURCE_DIR}/include
 )
+
+# Unit tests
+add_executable(ranforge_tests
+    tests/unit/test_types.cpp
+)
+
+target_link_libraries(ranforge_tests
+    PRIVATE
+        GTest::gtest_main
+)
+
+target_include_directories(ranforge_tests
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)
+
+# Automatically discover GoogleTest cases
+include(GoogleTest)
+gtest_discover_tests(ranforge_tests)

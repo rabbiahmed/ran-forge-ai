@@ -34,29 +34,36 @@ add_compile_options(
     -Wpedantic
 )
 
+# Core library
+add_library(ranforge_core
+    src/scheduler/proportional_fair.cpp
+)
+
+target_include_directories(ranforge_core
+    PUBLIC
+        ${PROJECT_SOURCE_DIR}/include
+)
+
 # Main application
 add_executable(ranforge
     src/main.cpp
 )
 
-target_include_directories(ranforge
+target_link_libraries(ranforge
     PRIVATE
-        ${PROJECT_SOURCE_DIR}/include
+        ranforge_core
 )
 
 # Unit tests
 add_executable(ranforge_tests
     tests/unit/test_types.cpp
+    tests/unit/test_scheduler.cpp
 )
 
 target_link_libraries(ranforge_tests
     PRIVATE
+        ranforge_core
         GTest::gtest_main
-)
-
-target_include_directories(ranforge_tests
-    PRIVATE
-        ${PROJECT_SOURCE_DIR}/include
 )
 
 # Automatically discover GoogleTest cases

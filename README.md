@@ -33,9 +33,9 @@ The current implementation includes:
 
 The scheduler uses the following metric:
 
-\[
-M_i = \frac{R_i \times W_i}{\max(T_i,\epsilon)}
-\]
+$$
+M_i = \frac{R_i\times W_i}{\max(T_i,\epsilon)}
+$$
 
 Where:
 

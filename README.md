@@ -39,10 +39,10 @@ $$
 
 Where:
 
-- \(R_i\): Achievable data rate for UE \(i\).
-- \(W_i\): QoS weight for UE \(i\).
-- \(T_i\): Average throughput for UE \(i\).
-- \(\epsilon\): Small positive value to avoid division by zero.
+- $$\(R_i\)$$: Achievable data rate for UE \(i\).
+- $$\(W_i\)$$: QoS weight for UE \(i\).
+- $$\(T_i\)$$: Average throughput for UE \(i\).
+- $$\(\epsilon\)$$: Small positive value to avoid division by zero.
 
 Candidates are ranked by their scheduling metric, and available PRBs are distributed in ranked round-robin order.
 

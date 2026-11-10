@@ -1,0 +1,21 @@
+Date: 2026-11-09T22:05:05-05:00
+OS:
+Ubuntu 22.04.5 LTS
+
+CPU:
+Architecture:                            x86_64
+CPU(s):                                  12
+On-line CPU(s) list:                     0-11
+Model name:                              Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
+CPU max MHz:                             4500.0000
+CPU min MHz:                             800.0000
+NUMA node0 CPU(s):                       0-11
+
+Compiler:
+g++-11 (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+
+CMake:
+cmake version 3.22.1
+
+Build type: Release
+Benchmark library: Google Benchmark 1.9.5

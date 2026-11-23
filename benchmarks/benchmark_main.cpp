@@ -42,12 +42,21 @@ void BM_ProportionalFairScheduler(benchmark::State& state)
     );
 }
 
+// UE scaling with a fixed PRB count, followed by PRB scaling
+// with a fixed UE count.
 BENCHMARK(BM_ProportionalFairScheduler)
-    ->Args({16, 25})
-    ->Args({64, 100})
+    ->Args({64, 273})
     ->Args({256, 273})
+    ->Args({512, 273})
     ->Args({1024, 273})
+    ->Args({2048, 273})
     ->Args({4096, 273})
+    ->Args({8192, 273})
+    ->Args({256, 25})
+    ->Args({256, 100})
+    ->Args({256, 546})
+    ->Args({256, 1092})
+    ->Args({256, 2184})
     ->Unit(benchmark::kMicrosecond);
 
 } // namespace

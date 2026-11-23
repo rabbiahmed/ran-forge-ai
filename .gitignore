@@ -25,3 +25,5 @@ cmake-build-*/
 .env
 .env.*
 !.env.example
+
+/build-profile/
